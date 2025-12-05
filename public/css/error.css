@@ -1,0 +1,173 @@
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --info: #3b82f6;
+    --dark: #1f2937;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f8fafc;
+    color: #1f2937;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(
+        circle at 10% 20%,
+        rgba(248, 250, 252, 0.8) 0%,
+        rgba(248, 250, 252, 1) 90%
+    );
+}
+
+.error-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.error-icon {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-light) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(99, 102, 241, 0.2));
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-light) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(99, 102, 241, 0.2));
+}
+
+.error-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #1f2937, #4b5563);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.error-message {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-error {
+    padding: 0.75rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-error:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-error-primary {
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-light) 100%
+    );
+    color: white;
+    border: none;
+}
+
+.btn-error-secondary {
+    background: white;
+    border: 1px solid #e5e7eb;
+    color: var(--dark);
+}
+
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.floating-shapes div {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.1);
+    animation: float 15s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 4rem;
+    }
+
+    .error-title {
+        font-size: 1.75rem;
+    }
+
+    .error-message {
+        font-size: 1rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-error {
+        width: 100%;
+        max-width: 300px;
+    }
+}

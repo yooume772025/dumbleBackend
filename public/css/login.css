@@ -1,0 +1,203 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFD86C 0%, #E6C25A 100%) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.auth-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-inner {
+    width: 100%;
+}
+
+.loginlogo {
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+    color: #1A1A1A !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem !important;
+    font-family: 'Arial Black', Arial, sans-serif;
+    letter-spacing: -2px;
+    text-align: center;
+    display: block;
+}
+
+.card {
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 2.5rem !important;
+}
+
+.card-text {
+    color: #6C757D;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.form-label {
+    font-weight: 600 !important;
+    color: #1A1A1A !important;
+    margin-bottom: 0.75rem !important;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    border: 2px solid #E9ECEF !important;
+    border-radius: 12px !important;
+    padding: 0.875rem 1rem !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    border-color: #FFD86C !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 216, 108, 0.25) !important;
+    background: #FFFFFF !important;
+}
+
+.input-group-text {
+    border: 2px solid #E9ECEF !important;
+    border-left: none !important;
+    background: #FFFFFF !important;
+    border-radius: 0 12px 12px 0 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6C757D;
+}
+
+.input-group-text:hover {
+    background: #F8F9FA !important;
+    color: #1A1A1A;
+}
+
+.btn-primary, .login-btn {
+    background: linear-gradient(135deg, #FFD86C 0%, #E6C25A 100%) !important;
+    border: none !important;
+    color: #1A1A1A !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    padding: 0.875rem 2rem !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(255, 216, 108, 0.3) !important;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary:hover, .login-btn:hover {
+    background: linear-gradient(135deg, #E6C25A 0%, #FFD86C 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(255, 216, 108, 0.4) !important;
+    color: #1A1A1A !important;
+}
+
+.btn-primary:active, .login-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 10px rgba(255, 216, 108, 0.3) !important;
+}
+
+.auth-basic::before {
+    background-color: rgba(255, 216, 108, 0) !important;
+}
+
+.dumble-title {
+    font-size: 52px;
+    font-family: 'Merienda One', cursive;
+    color: #1A1A1A !important;
+}
+
+@media (max-width: 768px) {
+    .loginlogo {
+        font-size: 2.5rem !important;
+    }
+    
+    .card-body {
+        padding: 2rem !important;
+    }
+    
+    .auth-wrapper {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .loginlogo {
+        font-size: 2rem !important;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.form-control:focus,
+.btn:focus {
+    outline: none !important;
+}
+
+.btn-primary:disabled {
+    background: #6C757D !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}

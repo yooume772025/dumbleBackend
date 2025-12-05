@@ -1,0 +1,508 @@
+:root {
+    --primary: #ffd86c;
+    --primary-light: #ffeaa7;
+    --success: #1cc88a;
+    --danger: #e74a3b;
+    --warning: #f6c23e;
+    --dark: #5a5c69;
+    --light: #f8f9fc;
+    --gradient-start: #ffd86c;
+    --gradient-end: #ffeaa7;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #333;
+    min-height: 100vh;
+}
+
+.installer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+    background: white;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .installer-container {
+        margin: 1rem;
+        border-radius: 0.5rem;
+    }
+    
+    .installer-header {
+        padding: 1.5rem;
+    }
+    
+    .installer-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .installer-body {
+        padding: 1.5rem;
+    }
+    
+    .installer-footer {
+        padding: 1rem;
+    }
+    
+    .progress-container {
+        margin: 1.5rem 0;
+    }
+    
+    .step-title {
+        font-size: 0.8rem;
+    }
+    
+    .requirement-card {
+        min-height: 140px;
+    }
+    
+    .requirement-card .card-body {
+        padding: 1rem;
+    }
+    
+    .welcome-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .welcome-icon i {
+        font-size: 1.5rem;
+    }
+}
+
+.installer-header {
+    padding: 2rem;
+    background: linear-gradient(
+        135deg,
+        var(--gradient-start),
+        var(--gradient-end)
+    );
+    color: white;
+    border-radius: 0.5rem 0.5rem 0 0;
+    text-align: center;
+}
+
+.installer-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.installer-body {
+    padding: 2.5rem;
+}
+
+.installer-footer {
+    padding: 1.5rem;
+    background: #f8f9fc;
+    border-radius: 0 0 0.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-container {
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.progress-line {
+    position: absolute;
+    top: 1.25rem;
+    left: 12.5%;
+    width: 75%;
+    height: 4px;
+    background: #eaecf4;
+    z-index: 0;
+}
+
+.progress-step {
+    position: relative;
+    text-align: center;
+    color: #b7b9cc;
+    z-index: 1;
+    padding: 0 0.5rem;
+}
+
+.progress-step.active {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.progress-step.completed {
+    color: var(--primary);
+}
+
+.progress-step .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: #eaecf4;
+    margin-bottom: 0.75rem;
+    color: #b7b9cc;
+    font-weight: 600;
+}
+
+.progress-step.active .step-number,
+.progress-step.completed .step-number {
+    background: var(--primary);
+    color: white;
+}
+
+.progress-step .step-title {
+    font-size: 0.9rem;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: center;
+    padding: 0rem 1.5rem;
+    border: 1px solid #e3e6f0;
+    margin-bottom: 0.75rem;
+    border-radius: 0.35rem;
+    transition: transform 0.3s ease;
+}
+
+.requirement-item:hover {
+    transform: translateY(-2px);
+}
+
+.requirement-item i {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.requirement-item.valid {
+    background-color: rgba(28, 200, 138, 0.15);
+    border-color: rgba(28, 200, 138, 0.4);
+}
+
+.requirement-item.invalid {
+    background-color: rgba(231, 74, 59, 0.15);
+    border-color: rgba(231, 74, 59, 0.4);
+}
+
+.btn-install {
+    background: var(--primary);
+    border: none;
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    color: white;
+    border-radius: 0.35rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: none;
+}
+
+.btn-outline-secondary {
+    padding: 0.6rem 2rem;
+    font-weight: 600;
+    border-radius: 0.35rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: none;
+}
+
+.alert {
+    border-left: 0.3rem solid;
+    border-radius: 0.35rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-success {
+    background-color: rgba(28, 200, 138, 0.1);
+}
+
+.alert-danger {
+    background-color: rgba(231, 74, 59, 0.1);
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.welcome-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 8px 20px rgba(255, 216, 108, 0.3);
+}
+
+.welcome-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.requirements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.requirement-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+}
+
+.requirement-card .card-body {
+    padding: 1.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.requirement-icon {
+    font-size: 2rem;
+}
+
+.requirement-status-icon {
+    font-size: 1.2rem;
+}
+
+.success-icon-large {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(255, 216, 108, 0.4);
+}
+
+.requirement-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.requirement-card i {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 50px;
+    text-align: center;
+}
+
+.requirement-card h5 {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.requirement-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.btn-install {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border: none;
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+    color: #333;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 216, 108, 0.4);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-install:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 216, 108, 0.6);
+    color: #333;
+}
+
+.btn-outline-secondary {
+    padding: 0.75rem 2.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 2px solid #e2e8f0;
+    color: #64748b;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-outline-secondary:hover {
+    background: #f8fafc;
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .installer-container {
+        margin: 1rem;
+        border-radius: 0.75rem;
+    }
+
+    .installer-header {
+        padding: 1.5rem;
+    }
+
+    .installer-body {
+        padding: 1.5rem;
+    }
+
+    .progress-step .step-number {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .progress-step .step-title {
+        font-size: 0.8rem;
+    }
+
+    .progress-line {
+        top: 1rem;
+    }
+
+    .welcome-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .welcome-icon i {
+        font-size: 2rem;
+    }
+
+    .requirement-card {
+        padding: 1rem;
+    }
+
+    .requirement-card i {
+        font-size: 1.5rem;
+        width: 40px;
+    }
+}
+
+.installer-container {
+    max-width: 900px !important;
+    margin: 2rem auto !important;
+    background: white !important;
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+}
+
+.installer-header {
+    padding: 2rem !important;
+    background: linear-gradient(135deg, #ffd86c, #ffeaa7) !important;
+    color: white !important;
+    text-align: center !important;
+}
+
+.installer-body {
+    padding: 2.5rem !important;
+}
+
+.installer-footer {
+    padding: 1.5rem !important;
+    background: #f8f9fc !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.btn-install {
+    background: linear-gradient(135deg, #ffd86c, #ffeaa7) !important;
+    border: none !important;
+    padding: 0.75rem 2.5rem !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    border-radius: 0.5rem !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.btn-install:hover {
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+.welcome-icon {
+    width: 80px !important;
+    height: 80px !important;
+    background: linear-gradient(135deg, #ffd86c, #ffeaa7) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+}
+
+.welcome-icon i {
+    font-size: 2.5rem !important;
+    color: white !important;
+}
+
+.requirement-card {
+    display: flex !important;
+    align-items: center !important;
+    padding: 1.5rem !important;
+    background: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.75rem !important;
+    text-align: left !important;
+    margin-bottom: 1rem !important;
+}
+
+.requirement-card i {
+    font-size: 2rem !important;
+    margin-right: 1rem !important;
+    width: 50px !important;
+    text-align: center !important;
+}
+
+.requirement-card h5 {
+    color: #5a5c69 !important;
+    font-weight: 600 !important;
+    margin: 0 0 0.25rem 0 !important;
+}
+
+.requirement-card p {
+    color: #64748b !important;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}

@@ -1,0 +1,26 @@
+.dropdown-items.viewprofile {
+    float: left;
+    color: green;
+    text-decoration: none;
+}
+
+.dropdown-items.update {
+    margin-left: 10px;
+    float: left;
+    color: blue;
+    text-decoration: none;
+}
+
+.dropdown-items.delete {
+    margin-left: 10px;
+    float: left;
+    color: red;
+    text-decoration: none;
+}
+
+.dropdown-items.unbanned {
+    margin-left: 10px;
+    float: left;
+    color: blue;
+    text-decoration: none;
+}
